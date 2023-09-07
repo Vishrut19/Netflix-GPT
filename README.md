@@ -2,7 +2,6 @@
 
 - Create React App
 - Configured TailwindCSS 
-- 
 
 
 # Features
@@ -12,7 +11,7 @@
 - Browse (after authentication)
     - Header
     - Main Movie
-        - Tailer in Background
+        - Trailer in Background
         - Title & Description
         - MovieSuggestions
             - MovieLists * N 
