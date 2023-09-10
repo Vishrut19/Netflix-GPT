@@ -1,6 +1,11 @@
 import { useState, useRef } from "react";
 import Header from "./Header";
 import { checkValidData } from "../utils/Validate.js";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+import { auth } from "../utils/firebase";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
@@ -13,14 +18,49 @@ const Login = () => {
   const handleButtonClick = () => {
     // Validate the form data i.e. Username, Email and Password.
 
-    const message = checkValidData(
-      name.current.value,
-      email.current.value,
-      password.current.value
-    );
+    const message = checkValidData(email.current.value, password.current.value);
     setErrorMessage(message);
 
-    // If form data is Valid -> Sign In/ Sign Up Logic
+    if (message) return; //If message is present that means the user has entered invalid data so return.
+
+    // Sign In/ Sign Up Logic
+    if (!isSignInForm) {
+      //* SignUp Logic
+      createUserWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          const user = userCredential.user;
+          console.log(user);
+        })
+        //TODO: Improve Error Message for Sign In
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.log(errorCode);
+          setErrorMessage(errorCode + "-" + errorMessage);
+        });
+    } else {
+      //* SignIn Logic
+      signInWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          const user = userCredential.user;
+          console.log(user);
+        })
+        //TODO: Improve Error Message for Sign Up
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.log(errorCode);
+          setErrorMessage(errorCode + "-" + errorMessage);
+        });
+    }
   };
 
   const toggleSignInForm = () => {
@@ -47,22 +87,22 @@ const Login = () => {
 
         {!isSignInForm && (
           <input
-            type="text"
             ref={name}
+            type="text"
             placeholder="Full Name"
             className="w-full p-4 my-4 bg-gray-700 rounded-md opacity-75"
           />
         )}
 
         <input
-          type="text"
           ref={email}
+          type="text"
           placeholder="Email Address"
           className="w-full p-4 my-4 bg-gray-700 rounded-md opacity-75"
         />
         <input
-          type="password"
           ref={password}
+          type="password"
           placeholder="Password"
           className="w-full p-4 my-4 bg-gray-700 rounded-md opacity-75"
         />
