@@ -6,10 +6,12 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
+  const navigate = useNavigate();
 
   const email = useRef(null);
   const password = useRef(null);
@@ -34,6 +36,8 @@ const Login = () => {
         .then((userCredential) => {
           const user = userCredential.user;
           console.log(user);
+          //* If user is Signed Up successfully navigate it to Browse page
+          navigate("/browse");
         })
         //TODO: Improve Error Message for Sign In
         .catch((error) => {
@@ -52,6 +56,8 @@ const Login = () => {
         .then((userCredential) => {
           const user = userCredential.user;
           console.log(user);
+          //* If user is Signed In successfully navigate it to Browse page
+          navigate("/browse");
         })
         //TODO: Improve Error Message for Sign Up
         .catch((error) => {
