@@ -4,14 +4,18 @@ import { checkValidData } from "../utils/Validate.js";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addUser } from "../utils/userSlice";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const email = useRef(null);
   const password = useRef(null);
@@ -35,9 +39,26 @@ const Login = () => {
       )
         .then((userCredential) => {
           const user = userCredential.user;
-          console.log(user);
-          //* If user is Signed Up successfully navigate it to Browse page
-          navigate("/browse");
+          updateProfile(user, {
+            displayName: name.current.value,
+            photoURL: "https://avatars.githubusercontent.com/u/53470896?v=4",
+          })
+            .then(() => {
+              //* If user is Signed Up successfully navigate it to Browse page
+              const { uid, email, displayName, photoURL } = auth.currentUser; //This user will have updated value i.e. Latest Value from the Redux Store.
+              dispatch(
+                addUser({
+                  uid: uid,
+                  email: email,
+                  displayName: displayName,
+                  photoURL: photoURL,
+                })
+              );
+              navigate("/browse");
+            })
+            .catch((error) => {
+              setErrorMessage(error.message);
+            });
         })
         //TODO: Improve Error Message for Sign In
         .catch((error) => {

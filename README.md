@@ -12,6 +12,8 @@
 - Create SignUp in Firebase
 - Implemented Sign In User API
 - Created Redux Store with userSlice
+- Implemented Sign Out Logic
+- Updated UserName/ Display Name as well as Photo URL.
 
 # Features
 
