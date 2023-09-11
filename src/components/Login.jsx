@@ -45,6 +45,7 @@ const Login = () => {
           })
             .then(() => {
               //* If user is Signed Up successfully navigate it to Browse page
+              //! This fixes a BUG where the user name and image doesn't update.
               const { uid, email, displayName, photoURL } = auth.currentUser; //This user will have updated value i.e. Latest Value from the Redux Store.
               dispatch(
                 addUser({
