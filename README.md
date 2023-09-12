@@ -16,6 +16,8 @@
 - Updated UserName/ Display Name as well as Photo URL.
 - Fixed BUG: Getting Redirect to Browse Page even the User is not Logged In.
 - Added Hard Coded Values to Constant File.
+- Registered On TMDB API to register my app and also to get access token.
+- Get Data from TMDB "Now Playing" movies list.
 
 # Features
 
