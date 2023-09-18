@@ -24,4 +24,4 @@ export const SUPPORTED_LANGUAGES = [
   { identifier: "spanish", name: "Spanish" },
 ];
 
-export const OPENAI_KEY = "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";
+export const OPENAI_KEY = import.meta.env.VITE_REACT_APP_OPENAI_KEY;
