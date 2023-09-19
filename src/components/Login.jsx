@@ -94,11 +94,15 @@ const Login = () => {
     <div>
       <Header />
       <div className="absolute">
-        <img src={BACKGROUND_IMAGE_URL} alt="Netflix Background Image" />
+        <img
+          className="fixed object-cover w-screen h-screen"
+          src={BACKGROUND_IMAGE_URL}
+          alt="Netflix Background Image"
+        />
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="absolute left-0 right-0 w-3/12 p-12 mx-auto text-white bg-black rounded-md my-36 bg-opacity-80"
+        className="absolute left-0 right-0 w-full p-12 mx-auto text-white bg-black rounded-md md:w-3/12 my-36 bg-opacity-80"
       >
         {/* Change the type to Email Later */}
         <h1 className="py-4 text-3xl font-bold">

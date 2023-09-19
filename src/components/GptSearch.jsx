@@ -3,16 +3,21 @@ import GptSearchBar from "./GptSearchBar";
 import GptMovieSuggestions from "./GptMovieSuggestions";
 import { BACKGROUND_IMAGE_URL } from "../utils/constants";
 
-const GptSearch = () => {
+const GPTSearch = () => {
   return (
-    <div>
+    <>
       <div className="fixed -z-10">
-        <img src={BACKGROUND_IMAGE_URL} alt="Netflix Background Image" />
+        <img
+          className="object-cover w-screen h-screen"
+          src={BACKGROUND_IMAGE_URL}
+          alt="logo"
+        />
       </div>
-      <GptSearchBar />
-      <GptMovieSuggestions />
-    </div>
+      <div className="">
+        <GptSearchBar />
+        <GptMovieSuggestions />
+      </div>
+    </>
   );
 };
-
-export default GptSearch;
+export default GPTSearch;

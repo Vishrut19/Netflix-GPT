@@ -19,7 +19,6 @@ const GptSearchBar = () => {
       API_OPTIONS
     );
     const json = await data.json();
-    // console.log(json.results);
     return json.results;
   };
 
@@ -35,32 +34,30 @@ const GptSearchBar = () => {
       model: "gpt-3.5-turbo",
     });
     // This will give me Array of Movies.
-    console.log(gptResults.choices?.[0]?.message?.content);
     const gptMovies = gptResults.choices?.[0]?.message?.content.split(",");
 
     //* For Each Movie in the Above List, we will search it in TMDB  API and fetch data from there.
     const promiseArray = await gptMovies.map((movie) => searchMovieTMDB(movie));
     const tmdbResults = await Promise.all(promiseArray);
-    console.log(tmdbResults);
     dispatch(
       addGptMovieResult({ movieNames: gptMovies, movieResults: tmdbResults })
     );
   };
 
   return (
-    <div className="pt-[10%] flex justify-center">
+    <div className="pt-[35%] md:pt-[10%] flex justify-center">
       <form
-        className="w-1/2 bg-black grid grid-cols-12"
+        className="grid w-full grid-cols-12 bg-black md:w-1/2"
         onSubmit={(e) => e.preventDefault()}
       >
         <input
           type="text"
           ref={searchText}
-          className="p-4 m-4 col-span-9"
+          className="col-span-9 p-4 m-4"
           placeholder={lang[langKey].gptSearchPlaceholder}
         />
         <button
-          className="col-span-3 m-4 px-4 py-2 bg-red-700 text-white rounded-lg"
+          className="col-span-3 px-4 py-2 m-4 text-white bg-red-700 rounded-lg"
           onClick={handleGptSearchClick}
         >
           {lang[langKey].search}
