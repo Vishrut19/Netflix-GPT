@@ -2,7 +2,7 @@
 
 ## Live Demo - https://youtu.be/993TdfYBSVM
 
-- Create React App
+- Create Vite App
 - Configured TailwindCSS
 - Header
 - Routing of App
