@@ -1,6 +1,8 @@
 # Netflix GPT
 
-- Create React App
+## Live Demo - https://youtu.be/993TdfYBSVM
+
+- Create Vite App
 - Configured TailwindCSS
 - Header
 - Routing of App
@@ -63,3 +65,22 @@
 - NetflixGPT
   - Search Bar
   - Movie Suggestions
+ 
+# Project Setup
+- Clone the Repo using the command: 
+```
+git clone git@github.com:Vishrut19/Netflix-GPT.git
+```
+- After, that run the command to Install Dependencies : 
+```
+npm i 
+```
+- Then, Create a `.env` file and copy and paste your own OpenAI API key:
+```
+VITE_REACT_APP_OPENAI_KEY = <Your OPENAI API KEY>
+```
+- At last, run the command
+```
+npm run dev
+```
+Voila 🎉 ! The Project will be up and running.
