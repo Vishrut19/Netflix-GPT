@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 const VideoTitle = ({ title, overview }) => {
   return (
-    <div className="w-screen aspect-video pt-[20%] px-6 md:px-24 absolute text-white bg-gradient-to-r from-black">
+    <div className="w-screen aspect-video pt-[13%] px-6 md:px-24 absolute text-white bg-gradient-to-r from-black">
       <h1 className="text-2xl font-bold md:text-6xl">{title}</h1>
       <p className="hidden w-1/4 py-6 text-lg md:inline-block">{overview}</p>
       <div className="my-4 md:m-0">
