@@ -97,7 +97,7 @@ const Login = () => {
         <img
           className="fixed object-cover w-screen h-screen"
           src={BACKGROUND_IMAGE_URL}
-          alt="Netflix Background Image"
+          alt="NetflixGPT Background Image"
         />
       </div>
       <form
@@ -142,7 +142,7 @@ const Login = () => {
         <p className="py-4 cursor-pointer" onClick={toggleSignInForm}>
           {isSignInForm ? (
             <span>
-              New to Netflix? <span className="underline">Sign Up Now</span>
+              New to NetflixGPT? <span className="underline">Sign Up Now</span>
             </span>
           ) : (
             <span>
