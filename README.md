@@ -1,86 +1,77 @@
-# Netflix GPT
+# Netflix GPT  
+**AI-Powered Netflix-Style Movie Discovery App**
 
-## Live Demo - https://youtu.be/993TdfYBSVM
+🎬 **Live Demo:** https://youtu.be/993TdfYBSVM  
 
-- Create Vite App
-- Configured TailwindCSS
-- Header
-- Routing of App
-- Login Form
-- Sign up Form
-- Form Validation
-- useRef Hook
-- Firebase Setup
-- Deploying our app to production
-- Create SignUp User Account
-- Implement Sign In user Api
-- Created Redux Store with userSlice
-- Implemented Sign out
-- Update Profile
-- BugFix: Sign up user displayName and profile picture update
-- BugFix: if the user is not logged in Redirect /browse to Login Page and vice-versa
-- Unsubscibed to the onAuthStateChanged callback
-- Add hardcoded values to the constants file
-- Regiter TMDB API & create an app & get access token
-- Get Data from TMDB now playing movies list API
-- Custom Hook for Now Playing Movies
-- Create movieSlice
-- Update Store with movies Data
-- Planning for MainContauiner & secondary container
-- Fetch Data for Trailer Video
-- Update Store with Trailer Video Data
-- Embedded the Yotube video and make it autoplay and mute
-- Tailwind Classes to make Main Container look awesome
-- Build Secondary Component
-- Build Movie List
-- Build Movie Card
-- TMDB Image CDN URL
-- Made the Browsre page amazing with Tailwind CSS
-- usePopularMovies Custom hook
-- GPT Search Page
-- GPT Search Bar
-- Multi-language Feature in our App
-- Get Open AI Api Key
-- Gpt Search API Call
-- Fetched gptMoviesSuggestions from TMDB
-- Created gptSlice added data
-- Resused Movie List component to make movie suggestion container
-- Memoization
-- Added .env file
-- Adding .env file to gitignore
-- Made our Site Responsive
+Netflix GPT is a full-stack web application that combines a Netflix-style UI with AI-powered movie recommendations using OpenAI and TMDB. Users can sign in, browse trending movies, and ask AI to suggest what to watch based on their mood or prompt.
 
-# Features
+This project is built as a **production-grade SaaS-style application** with authentication, protected routes, AI search, and modern UI/UX.
 
-- Login/Sign Up
-  - Sign In /Sign up Form
-  - redirect to Browse Page
-- Browse (after authentication)
-  - Header
-  - Main Movie
-    - Tailer in Background
-    - Title & Description
-    - MovieSuggestions
-      - MovieLists \* N
-- NetflixGPT
-  - Search Bar
-  - Movie Suggestions
- 
-# Project Setup
-- Clone the Repo using the command: 
+---
+
+## ✨ Key Features
+
+### 🔐 Authentication & User Accounts
+- Firebase Authentication (Sign up / Sign in)
+- Protected routes (only logged-in users can access the app)
+- Profile update (display name & avatar)
+- Automatic session handling
+
+### 🎥 Netflix-Style Browsing
+- Trending, Now Playing & Popular movies
+- Movie trailers embedded from YouTube
+- Dynamic movie lists from TMDB API
+- Responsive Netflix-style UI
+
+### 🤖 AI Movie Search
+- AI-powered movie recommendations using OpenAI
+- Users can type what they want to watch (e.g. *“romantic comedy for a rainy night”*)
+- GPT returns movie suggestions, which are fetched from TMDB and displayed
+
+### 🌍 Multi-Language Support
+- Language switching
+- GPT results and UI adapt to selected language
+
+### ⚡ Performance & UX
+- Redux state management
+- Memoized API calls
+- Custom hooks for movies & GPT search
+- Fully responsive (mobile, tablet, desktop)
+
+---
+
+## 🛠 Tech Stack
+
+- **Frontend:** React (Vite), Tailwind CSS  
+- **State Management:** Redux Toolkit  
+- **Authentication:** Firebase  
+- **AI:** OpenAI (ChatGPT API)  
+- **Movies API:** TMDB  
+- **Hosting:** Vercel / Firebase Hosting  
+
+---
+
+## 📦 Installation & Setup
+
+### 1. Clone the repository
 ```
-git clone git@github.com:Vishrut19/Netflix-GPT.git
+git clone https://github.com/Vishrut19/Netflix-GPT.git
+cd Netflix-GPT
 ```
-- After, that run the command to Install Dependencies : 
+
+### 2. Install dependencies
 ```
-npm i 
+npm install 
 ```
-- Then, Create a `.env` file and copy and paste your own OpenAI API key:
+
+### 3. Configure environment variables
+Create a .env file in the root folder:
 ```
-VITE_REACT_APP_OPENAI_KEY = <Your OPENAI API KEY>
+VITE_REACT_APP_OPENAI_KEY=YOUR_OPENAI_API_KEY
+VITE_TMDB_API_KEY=YOUR_TMDB_API_KEY
 ```
-- At last, run the command
+
+### 4. Run the app
 ```
 npm run dev
 ```
-Voila 🎉 ! The Project will be up and running.
