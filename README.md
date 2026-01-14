@@ -7,7 +7,6 @@ Netflix GPT is a full-stack web application that combines a Netflix-style UI wit
 
 This project is built as a **production-grade SaaS-style application** with authentication, protected routes, AI search, and modern UI/UX.
 
----
 
 ## ✨ Key Features
 
@@ -38,8 +37,6 @@ This project is built as a **production-grade SaaS-style application** with auth
 - Custom hooks for movies & GPT search
 - Fully responsive (mobile, tablet, desktop)
 
----
-
 ## 🛠 Tech Stack
 
 - **Frontend:** React (Vite), Tailwind CSS  
@@ -48,8 +45,6 @@ This project is built as a **production-grade SaaS-style application** with auth
 - **AI:** OpenAI (ChatGPT API)  
 - **Movies API:** TMDB  
 - **Hosting:** Vercel / Firebase Hosting  
-
----
 
 ## 📦 Installation & Setup
 
