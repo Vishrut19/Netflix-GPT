@@ -1,41 +1,71 @@
-# Netflix GPT  
-**AI-Powered Netflix-Style Movie Discovery App**
+# MediaRecs-AI  
+**AI-Powered Content Recommendation Platform**
 
 🎬 **Live Demo:** https://youtu.be/993TdfYBSVM  
 
-Netflix GPT is a full-stack web application that combines a Netflix-style UI with AI-powered movie recommendations using OpenAI and TMDB. Users can sign in, browse trending movies, and ask AI to suggest what to watch based on their mood or prompt.
+**MediaRecs-AI** is an AI-powered recommendation platform that helps users discover movies and content using natural language.  
+It combines a modern streaming-style UI with OpenAI-driven recommendations and real-time data from TMDB.
 
-This project is built as a **production-grade SaaS-style application** with authentication, protected routes, AI search, and modern UI/UX.
+This project is built as a **production-ready SaaS-style application** with authentication, protected routes, API integrations, and scalable frontend architecture — designed to demonstrate how AI-driven recommendation systems can be used in real products.
 
+## 🚀 What This App Does
+
+MediaRecs-AI allows users to:
+
+- Sign up and log in securely  
+- Browse trending and popular content  
+- Ask AI what to watch using natural language  
+- Instantly receive personalized recommendations  
+- View trailers and movie details  
+- Switch languages dynamically  
+
+It demonstrates how **AI can be embedded into a modern web product** to drive user engagement and discovery.
 
 ## ✨ Key Features
 
 ### 🔐 Authentication & User Accounts
-- Firebase Authentication (Sign up / Sign in)
-- Protected routes (only logged-in users can access the app)
-- Profile update (display name & avatar)
-- Automatic session handling
+- Firebase authentication (sign up / sign in)
+- Protected routes for logged-in users
+- Profile management (name & avatar)
+- Persistent login sessions
 
-### 🎥 Netflix-Style Browsing
-- Trending, Now Playing & Popular movies
-- Movie trailers embedded from YouTube
-- Dynamic movie lists from TMDB API
-- Responsive Netflix-style UI
+### 🎥 Content Discovery UI
+- Trending, Now Playing & Popular content feeds  
+- Dynamic movie data from TMDB  
+- YouTube trailer integration  
+- Fully responsive Netflix-style interface  
 
-### 🤖 AI Movie Search
-- AI-powered movie recommendations using OpenAI
-- Users can type what they want to watch (e.g. *“romantic comedy for a rainy night”*)
-- GPT returns movie suggestions, which are fetched from TMDB and displayed
+### 🤖 AI Recommendation Engine
+- Natural-language search powered by OpenAI  
+- Users can describe what they want to watch  
+- GPT generates intelligent recommendations  
+- Results are matched with real TMDB movie data  
 
 ### 🌍 Multi-Language Support
-- Language switching
-- GPT results and UI adapt to selected language
+- App-wide language switching  
+- GPT responses adapt to selected language  
+- UI text updates dynamically  
 
-### ⚡ Performance & UX
-- Redux state management
-- Memoized API calls
-- Custom hooks for movies & GPT search
-- Fully responsive (mobile, tablet, desktop)
+### ⚡ Performance & Architecture
+- Redux Toolkit for state management  
+- Custom React hooks for API & AI logic  
+- Memoized calls for performance  
+- Modular, scalable frontend structure  
+
+## 🧠 Why This Project Matters
+
+MediaRecs-AI is not just a UI clone — it demonstrates how to build:
+
+- AI-powered user experiences  
+- Authenticated SaaS-style frontends  
+- Real-time API-driven dashboards  
+- Scalable React architecture  
+
+It can be adapted for:
+- Streaming platforms  
+- E-learning platforms  
+- E-commerce product recommendations  
+- Content and media startups  
 
 ## 🛠 Tech Stack
 
@@ -43,30 +73,30 @@ This project is built as a **production-grade SaaS-style application** with auth
 - **State Management:** Redux Toolkit  
 - **Authentication:** Firebase  
 - **AI:** OpenAI (ChatGPT API)  
-- **Movies API:** TMDB  
+- **Content API:** TMDB  
 - **Hosting:** Vercel / Firebase Hosting  
 
 ## 📦 Installation & Setup
 
 ### 1. Clone the repository
-```
-git clone https://github.com/Vishrut19/Netflix-GPT.git
-cd Netflix-GPT
+```bash
+git clone https://github.com/Vishrut19/MediaRecs-AI.git
+cd MediaRecs-AI
 ```
 
 ### 2. Install dependencies
-```
-npm install 
+```bash
+npm install
 ```
 
 ### 3. Configure environment variables
 Create a .env file in the root folder:
-```
+```bash
 VITE_REACT_APP_OPENAI_KEY=YOUR_OPENAI_API_KEY
 VITE_TMDB_API_KEY=YOUR_TMDB_API_KEY
 ```
 
-### 4. Run the app
-```
+### 2. Run the app
+```bash
 npm run dev
 ```
