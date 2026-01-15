@@ -61,7 +61,7 @@ const Header = () => {
 
   return (
     <div className="absolute z-20 flex flex-col w-screen px-6 py-3 md:justify-between bg-gradient-to-b from-black md:flex-row">
-      <img className="mx-auto w-44 md:mx-0" src={LOGO} alt="Netflix Logo" />
+      <img className="mx-auto w-52 md:mx-0 md:w-64" src={LOGO} alt="Netflix Logo" />
       {user && (
         <div className="flex justify-between p-2">
           {showGptSearch && (
