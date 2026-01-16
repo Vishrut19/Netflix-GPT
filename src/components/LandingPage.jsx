@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { Button } from "./ui/Button";
 import Logo from "./ui/Logo";
 import { Sparkles, Zap, Search, Globe, Check, Star, Users, TrendingUp, Shield, ArrowRight, MessageSquare } from "lucide-react";
@@ -329,9 +329,9 @@ const LandingPage = () => {
             <div className="flex items-center gap-6 mt-6 md:mt-0 text-gray-400 text-sm">
               <span>© {new Date().getFullYear()} MediaRecs-AI. All rights reserved.</span>
               <span>•</span>
-              <a href="#" className="hover:text-white transition-colors">Privacy</a>
+              <Link to="/privacy" className="hover:text-white transition-colors">Privacy</Link>
               <span>•</span>
-              <a href="#" className="hover:text-white transition-colors">Terms</a>
+              <Link to="/terms" className="hover:text-white transition-colors">Terms</Link>
               <span>•</span>
               <a href="#" className="hover:text-white transition-colors">Support</a>
             </div>

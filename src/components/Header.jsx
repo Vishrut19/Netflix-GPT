@@ -65,8 +65,10 @@ const Header = () => {
   // Don't render the navbar on login page
   if (isLoginPage) {
     return (
-      <div className="absolute z-20 w-full px-8 py-6">
-        <Logo size="xl" />
+      <div className="absolute z-20 w-full px-4 py-3 sm:px-6 sm:py-6">
+        <div className="scale-75 sm:scale-100 origin-top-left">
+          <Logo size="xl" />
+        </div>
       </div>
     );
   }
