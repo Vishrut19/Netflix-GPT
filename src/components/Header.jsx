@@ -20,7 +20,7 @@ const Header = () => {
   const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
   const langKey = useSelector((store) => store.config.lang);
 
-  const isLoginPage = location.pathname === "/";
+  const isLoginPage = location.pathname === "/login";
 
   const handleLanguageChange = (e) => {
     dispatch(changeLanguage(e.target.value));
@@ -49,7 +49,9 @@ const Header = () => {
         if (isLoginPage) navigate("/browse");
       } else {
         dispatch(removeUser());
-        navigate("/");
+        if (!isLoginPage && location.pathname !== "/") {
+          navigate("/");
+        }
       }
     });
 
