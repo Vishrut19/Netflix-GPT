@@ -16,7 +16,6 @@ import { Input } from "./ui/Input";
 import { Button } from "./ui/Button";
 import { Mail, Lock, User, AlertCircle, Eye, EyeOff } from "lucide-react";
 import GoogleIcon from "./ui/GoogleIcon";
-import AppleIcon from "./ui/AppleIcon";
 
 // Initialize Google Auth Provider once
 const googleProvider = new GoogleAuthProvider();
@@ -308,15 +307,6 @@ const Login = () => {
                     </span>
                   </>
                 )}
-              </button>
-
-              {/* Apple Login Button */}
-              <button
-                type="button"
-                className="flex w-full items-center justify-center gap-2 sm:gap-3 rounded-lg border border-gray-700 bg-black px-4 py-2.5 sm:py-3 text-xs sm:text-sm font-medium text-white shadow-sm hover:bg-gray-900 transition-all duration-200 hover:border-gray-600 active:scale-[0.98]"
-              >
-                <AppleIcon className="h-4 w-4 sm:h-5 sm:w-5" />
-                <span className="whitespace-nowrap">Sign In with Apple</span>
               </button>
             </div>
 
