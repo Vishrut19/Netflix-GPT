@@ -10,6 +10,8 @@ import { changeLanguage } from "../utils/configSlice";
 import { Button } from "./ui/Button";
 import { Sparkles, Home, LogOut, Globe, User, ChevronDown } from "lucide-react";
 
+import Logo from "./ui/Logo";
+
 const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -61,109 +63,63 @@ const Header = () => {
   // Don't render the navbar on login page
   if (isLoginPage) {
     return (
-      <div className="absolute z-20 w-full px-8 py-4">
-        <img 
-          className="w-52 md:w-64 cursor-pointer" 
-          src={LOGO} 
-          alt="MediaRecs AI Logo"
-        />
+      <div className="absolute z-20 w-full px-8 py-6">
+        <Logo size="xl" />
       </div>
     );
   }
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-black/80 backdrop-blur-md">
+    <header className="sticky top-0 z-30 w-full border-b border-white/5 bg-gray-950/80 backdrop-blur-xl">
       <div className="flex h-16 items-center justify-between px-6 md:px-8">
-        {/* Logo */}
-        <div className="flex items-center gap-8">
-          <img 
-            className="w-48 md:w-56 cursor-pointer transition-transform hover:scale-105" 
-            src={LOGO} 
-            alt="MediaRecs AI Logo"
-            onClick={() => navigate("/browse")}
-          />
+        {/* Header Title Area (Empty as requested) */}
+        <div className="flex items-center gap-4">
         </div>
 
-        {/* Right Section */}
-        {user && (
-          <div className="flex items-center gap-3">
-            {/* Language Selector */}
-            {showGptSearch && (
-              <div className="hidden md:flex items-center gap-2 px-3 py-2 bg-gray-900/50 border border-gray-800 rounded-lg hover:bg-gray-900/70 transition-colors">
-                <Globe size={16} className="text-gray-400" />
-                <select
-                  className="bg-transparent text-sm text-white focus:outline-none cursor-pointer pr-1"
-                  onChange={handleLanguageChange}
-                  value={langKey}
-                >
-                  {SUPPORTED_LANGUAGES.map((lang) => (
-                    <option key={lang.identifier} value={lang.identifier} className="bg-gray-900">
-                      {lang.name}
-                    </option>
-                  ))}
-                </select>
-                <ChevronDown size={14} className="text-gray-400" />
-              </div>
+        {/* Action Area */}
+        <div className="flex items-center gap-4">
+          <Button 
+            onClick={handleGptSearchClick}
+            variant="default"
+            className="hidden md:flex items-center gap-2 bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-500 hover:to-indigo-600 border-none shadow-lg shadow-indigo-500/20 px-6"
+          >
+            {showGptSearch ? (
+              <>
+                <Home size={18} />
+                <span>Home Dashboard</span>
+              </>
+            ) : (
+              <>
+                <Sparkles size={18} />
+                <span>Ask AI Assistant</span>
+              </>
             )}
+          </Button>
 
-            {/* AI Search Toggle Button */}
-            <Button
-              variant={showGptSearch ? "outline" : "default"}
-              size="sm"
-              onClick={handleGptSearchClick}
-              className={`flex items-center gap-2 ${
-                !showGptSearch 
-                  ? "bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 border-none shadow-lg shadow-purple-900/20" 
-                  : "border-gray-700 hover:bg-gray-900"
-              }`}
-            >
-              {showGptSearch ? (
-                <>
-                  <Home size={16} />
-                  <span className="hidden md:inline">Home</span>
-                </>
-              ) : (
-                <>
-                  <Sparkles size={16} />
-                  <span className="hidden md:inline">Ask AI</span>
-                </>
-              )}
-            </Button>
-
-            {/* User Profile Section */}
-            <div className="flex items-center gap-3 pl-3 ml-3 border-l border-white/10">
-              {/* User Info - Desktop Only */}
-              <div className="hidden lg:flex flex-col items-end text-right">
-                <span className="text-sm font-semibold text-white truncate max-w-[120px]">
-                  {user?.displayName || "User"}
-                </span>
-                <span className="text-xs text-gray-400">Premium</span>
+          {/* User Profile */}
+          <div className="flex items-center gap-3 pl-4 border-l border-white/10">
+            <div className="hidden lg:flex flex-col items-end mr-1">
+              <span className="text-sm font-semibold text-white leading-tight">
+                {user?.displayName || "User"}
+              </span>
+              <span className="text-[10px] font-bold text-indigo-400 uppercase tracking-widest bg-indigo-400/10 px-1.5 py-0.5 rounded italic">
+                Pro Member
+              </span>
+            </div>
+            
+            <div className="relative group">
+              <div className="w-10 h-10 rounded-full border-2 border-indigo-600/50 p-0.5 transition-transform group-hover:scale-105">
+                {user?.photoURL ? (
+                  <img className="w-full h-full rounded-full object-cover" src={user?.photoURL} alt="User" />
+                ) : (
+                  <div className="w-full h-full rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white text-xs font-bold ring-2 ring-gray-950">
+                    {user?.displayName?.charAt(0) || <User size={16} />}
+                  </div>
+                )}
               </div>
-              
-              {/* Avatar */}
-              {user?.photoURL ? (
-                <img
-                  className="w-9 h-9 rounded-full border-2 border-purple-500/50 object-cover cursor-pointer hover:border-purple-500 transition-colors"
-                  src={user?.photoURL}
-                  alt="User profile"
-                />
-              ) : (
-                <div className="w-9 h-9 rounded-full bg-gradient-to-br from-purple-600 to-indigo-600 flex items-center justify-center border border-purple-500/50 cursor-pointer">
-                  <User size={18} className="text-white" />
-                </div>
-              )}
-
-              {/* Sign Out Button */}
-              <button 
-                onClick={handleSignOut} 
-                className="p-2 text-gray-400 hover:text-red-400 hover:bg-red-500/10 rounded-lg transition-all group"
-                title="Sign Out"
-              >
-                <LogOut size={18} className="group-hover:scale-110 transition-transform" />
-              </button>
             </div>
           </div>
-        )}
+        </div>
       </div>
     </header>
   );
